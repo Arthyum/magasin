@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - magasin@localhost" uuid="fe554e2a-6526-4927-a1b1-1a6abd388bfa">
+    <database-info product="MySQL" version="5.7.9" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="magasin"/>
+      <table id="2" parent="1" name="t_article"/>
+      <table id="3" parent="1" name="t_comment"/>
+      <table id="4" parent="1" name="t_user"/>
+      <column id="5" parent="2" name="art_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="6" parent="2" name="art_title">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="7" parent="2" name="art_content">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <key id="8" parent="2" name="PRIMARY">
+        <columns>art_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="9" parent="3" name="com_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="10" parent="3" name="com_content">
+        <mandatory>1</mandatory>
+        <data-type>varchar(500)</data-type>
+      </column>
+      <column id="11" parent="3" name="art_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="12" parent="3" name="usr_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="13" parent="3" name="fk_com_art">
+        <columns>art_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="14" parent="3" name="fk_com_usr">
+        <columns>usr_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="15" parent="3" name="PRIMARY">
+        <columns>com_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="16" parent="3" name="fk_com_art">
+        <columns>art_id</columns>
+        <ref-key>~.t_article.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="17" parent="3" name="fk_com_usr">
+        <columns>usr_id</columns>
+        <ref-key>~.t_user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="18" parent="4" name="usr_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="19" parent="4" name="usr_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="20" parent="4" name="usr_password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(88)</data-type>
+      </column>
+      <column id="21" parent="4" name="usr_salt">
+        <mandatory>1</mandatory>
+        <data-type>varchar(23)</data-type>
+      </column>
+      <column id="22" parent="4" name="usr_role">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="23" parent="4" name="PRIMARY">
+        <columns>usr_id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
