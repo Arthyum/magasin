@@ -1,12 +1,12 @@
 <?php
 
-namespace MicroCMS\DAO;
+namespace magasinAPI\DAO;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use MicroCMS\Domain\User;
+use magasinAPI\Domain\User;
 
 class UserDAO extends DAO implements UserProviderInterface
 {
@@ -33,7 +33,7 @@ class UserDAO extends DAO implements UserProviderInterface
      *
      * @param integer $id The user id.
      *
-     * @return \MicroCMS\Domain\User|throws an exception if no matching user is found
+     * @return \magasinAPI\Domain\User|throws an exception if no matching user is found
      */
     public function find($id) {
         $sql = "select * from t_user where usr_id=?";
@@ -48,7 +48,7 @@ class UserDAO extends DAO implements UserProviderInterface
     /**
      * Saves a user into the database.
      *
-     * @param \MicroCMS\Domain\User $user The user to save
+     * @param \magasinAPI\Domain\User $user The user to save
      */
     public function save(User $user) {
         $userData = array(
@@ -111,14 +111,14 @@ class UserDAO extends DAO implements UserProviderInterface
      */
     public function supportsClass($class)
     {
-        return 'MicroCMS\Domain\User' === $class;
+        return 'magasinAPI\Domain\User' === $class;
     }
 
     /**
      * Creates a User object based on a DB row.
      *
      * @param array $row The DB row containing User data.
-     * @return \MicroCMS\Domain\User
+     * @return \magasinAPI\Domain\User
      */
     protected function buildDomainObject($row) {
         $user = new User();

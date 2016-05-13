@@ -1,11 +1,11 @@
 <?php
 
-namespace MicroCMS\Controller;
+namespace magasinAPI\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use MicroCMS\Domain\Comment;
-use MicroCMS\Form\Type\CommentType;
+use magasinAPI\Domain\Comment;
+use magasinAPI\Form\Type\CommentType;
 
 class HomeController {
 

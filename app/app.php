@@ -28,7 +28,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
             'logout' => true,
             'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
             'users' => $app->share(function () use ($app) {
-                return new MicroCMS\DAO\UserDAO($app['db']);
+                return new magasinAPI\DAO\UserDAO($app['db']);
             }),
         ),
     ),
@@ -42,8 +42,8 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
 $app->register(new Silex\Provider\FormServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider());
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
-    'monolog.logfile' => __DIR__.'/../var/logs/microcms.log',
-    'monolog.name' => 'MicroCMS',
+    'monolog.logfile' => __DIR__.'/../var/logs/magasinAPI.log',
+    'monolog.name' => 'magasinAPI',
     'monolog.level' => $app['monolog.level']
 ));
 $app->register(new Silex\Provider\ServiceControllerServiceProvider());
@@ -55,13 +55,13 @@ if (isset($app['debug']) && $app['debug']) {
 
 // Register services
 $app['dao.article'] = $app->share(function ($app) {
-    return new MicroCMS\DAO\ArticleDAO($app['db']);
+    return new magasinAPI\DAO\ArticleDAO($app['db']);
 });
 $app['dao.user'] = $app->share(function ($app) {
-    return new MicroCMS\DAO\UserDAO($app['db']);
+    return new magasinAPI\DAO\UserDAO($app['db']);
 });
 $app['dao.comment'] = $app->share(function ($app) {
-    $commentDAO = new MicroCMS\DAO\CommentDAO($app['db']);
+    $commentDAO = new magasinAPI\DAO\CommentDAO($app['db']);
     $commentDAO->setArticleDAO($app['dao.article']);
     $commentDAO->setUserDAO($app['dao.user']);
     return $commentDAO;

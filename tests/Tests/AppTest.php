@@ -1,6 +1,6 @@
 <?php
 
-namespace MicroCMS\Test;
+namespace magasinAPI\Test;
 
 require_once __DIR__.'/../../vendor/autoload.php';
 

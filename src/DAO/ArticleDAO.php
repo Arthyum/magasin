@@ -1,8 +1,8 @@
 <?php
 
-namespace MicroCMS\DAO;
+namespace magasinAPI\DAO;
 
-use MicroCMS\Domain\Article;
+use magasinAPI\Domain\Article;
 
 class ArticleDAO extends DAO
 {
@@ -29,7 +29,7 @@ class ArticleDAO extends DAO
      *
      * @param integer $id The article id.
      *
-     * @return \MicroCMS\Domain\Article|throws an exception if no matching article is found
+     * @return \magasinAPI\Domain\Article|throws an exception if no matching article is found
      */
     public function find($id) {
         $sql = "select * from t_article where art_id=?";
@@ -44,7 +44,7 @@ class ArticleDAO extends DAO
     /**
      * Saves an article into the database.
      *
-     * @param \MicroCMS\Domain\Article $article The article to save
+     * @param \magasinAPI\Domain\Article $article The article to save
      */
     public function save(Article $article) {
         $articleData = array(
@@ -78,7 +78,7 @@ class ArticleDAO extends DAO
      * Creates an Article object based on a DB row.
      *
      * @param array $row The DB row containing Article data.
-     * @return \MicroCMS\Domain\Article
+     * @return \magasinAPI\Domain\Article
      */
     protected function buildDomainObject($row) {
         $article = new Article();

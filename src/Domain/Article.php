@@ -1,6 +1,6 @@
 <?php
 
-namespace MicroCMS\Domain;
+namespace magasinAPI\Domain;
 
 class Article 
 {

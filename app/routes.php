@@ -1,50 +1,50 @@
 <?php
 
 // Home page
-$app->get('/', "MicroCMS\Controller\HomeController::indexAction");
+$app->get('/', "magasinAPI\Controller\HomeController::indexAction");
 
 // Detailed info about an article
-$app->match('/article/{id}', "MicroCMS\Controller\HomeController::articleAction");
+$app->match('/article/{id}', "magasinAPI\Controller\HomeController::articleAction");
 
 // Login form
-$app->get('/login', "MicroCMS\Controller\HomeController::loginAction")
+$app->get('/login', "magasinAPI\Controller\HomeController::loginAction")
 ->bind('login');  // named route so that path('login') works in Twig templates
 
 // Admin zone
-$app->get('/admin', "MicroCMS\Controller\AdminController::indexAction");
+$app->get('/admin', "magasinAPI\Controller\AdminController::indexAction");
 
 // Add a new article
-$app->match('/admin/article/add', "MicroCMS\Controller\AdminController::addArticleAction");
+$app->match('/admin/article/add', "magasinAPI\Controller\AdminController::addArticleAction");
 
 // Edit an existing article
-$app->match('/admin/article/{id}/edit', "MicroCMS\Controller\AdminController::editArticleAction");
+$app->match('/admin/article/{id}/edit', "magasinAPI\Controller\AdminController::editArticleAction");
 
 // Remove an article
-$app->get('/admin/article/{id}/delete', "MicroCMS\Controller\AdminController::deleteArticleAction");
+$app->get('/admin/article/{id}/delete', "magasinAPI\Controller\AdminController::deleteArticleAction");
 
 // Edit an existing comment
-$app->match('/admin/comment/{id}/edit', "MicroCMS\Controller\AdminController::editCommentAction");
+$app->match('/admin/comment/{id}/edit', "magasinAPI\Controller\AdminController::editCommentAction");
 
 // Remove a comment
-$app->get('/admin/comment/{id}/delete', "MicroCMS\Controller\AdminController::deleteCommentAction");
+$app->get('/admin/comment/{id}/delete', "magasinAPI\Controller\AdminController::deleteCommentAction");
 
 // Add a user
-$app->match('/admin/user/add', "MicroCMS\Controller\AdminController::addUserAction");
+$app->match('/admin/user/add', "magasinAPI\Controller\AdminController::addUserAction");
 
 // Edit an existing user
-$app->match('/admin/user/{id}/edit', "MicroCMS\Controller\AdminController::editUserAction");
+$app->match('/admin/user/{id}/edit', "magasinAPI\Controller\AdminController::editUserAction");
 
 // Remove a user
-$app->get('/admin/user/{id}/delete', "MicroCMS\Controller\AdminController::deleteUserAction");
+$app->get('/admin/user/{id}/delete', "magasinAPI\Controller\AdminController::deleteUserAction");
 
 // API : get all articles
-$app->get('/api/articles', "MicroCMS\Controller\ApiController::getArticlesAction");
+$app->get('/api/articles', "magasinAPI\Controller\ApiController::getArticlesAction");
 
 // API : get an article
-$app->get('/api/article/{id}', "MicroCMS\Controller\ApiController::getArticleAction");
+$app->get('/api/article/{id}', "magasinAPI\Controller\ApiController::getArticleAction");
 
 // API : create an article
-$app->post('/api/article', "MicroCMS\Controller\ApiController::addArticleAction");
+$app->post('/api/article', "magasinAPI\Controller\ApiController::addArticleAction");
 
 // API : remove an article
-$app->delete('/api/article/{id}', "MicroCMS\Controller\ApiController::deleteArticleAction");
+$app->delete('/api/article/{id}', "magasinAPI\Controller\ApiController::deleteArticleAction");

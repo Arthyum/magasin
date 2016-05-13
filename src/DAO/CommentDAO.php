@@ -1,18 +1,18 @@
 <?php
 
-namespace MicroCMS\DAO;
+namespace magasinAPI\DAO;
 
-use MicroCMS\Domain\Comment;
+use magasinAPI\Domain\Comment;
 
 class CommentDAO extends DAO 
 {
     /**
-     * @var \MicroCMS\DAO\ArticleDAO
+     * @var \magasinAPI\DAO\ArticleDAO
      */
     private $articleDAO;
 
     /**
-     * @var \MicroCMS\DAO\UserDAO
+     * @var \magasinAPI\DAO\UserDAO
      */
     private $userDAO;
 
@@ -75,7 +75,7 @@ class CommentDAO extends DAO
      *
      * @param integer $id The comment id
      *
-     * @return \MicroCMS\Domain\Comment|throws an exception if no matching comment is found
+     * @return \magasinAPI\Domain\Comment|throws an exception if no matching comment is found
      */
     public function find($id) {
         $sql = "select * from t_comment where com_id=?";
@@ -90,7 +90,7 @@ class CommentDAO extends DAO
     /**
      * Saves a comment into the database.
      *
-     * @param \MicroCMS\Domain\Comment $comment The comment to save
+     * @param \magasinAPI\Domain\Comment $comment The comment to save
      */
     public function save(Comment $comment) {
         $commentData = array(
@@ -143,7 +143,7 @@ class CommentDAO extends DAO
      * Creates an Comment object based on a DB row.
      *
      * @param array $row The DB row containing Comment data.
-     * @return \MicroCMS\Domain\Comment
+     * @return \magasinAPI\Domain\Comment
      */
     protected function buildDomainObject($row) {
         $comment = new Comment();

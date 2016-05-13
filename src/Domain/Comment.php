@@ -1,6 +1,6 @@
 <?php
 
-namespace MicroCMS\Domain;
+namespace magasinAPI\Domain;
 
 class Comment 
 {
@@ -14,7 +14,7 @@ class Comment
     /**
      * Comment author.
      *
-     * @var \MicroCMS\Domain\User
+     * @var \magasinAPI\Domain\User
      */
     private $author;
 
@@ -28,7 +28,7 @@ class Comment
     /**
      * Associated article.
      *
-     * @var \MicroCMS\Domain\Article
+     * @var \magasinAPI\Domain\Article
      */
     private $article;
 

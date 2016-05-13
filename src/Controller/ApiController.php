@@ -1,10 +1,10 @@
 <?php
 
-namespace MicroCMS\Controller;
+namespace magasinAPI\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use MicroCMS\Domain\Article;
+use magasinAPI\Domain\Article;
 
 class ApiController {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace MicroCMS\Domain;
+namespace magasinAPI\Domain;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 

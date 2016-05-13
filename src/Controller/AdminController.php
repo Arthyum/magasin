@@ -1,14 +1,14 @@
 <?php
 
-namespace MicroCMS\Controller;
+namespace magasinAPI\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use MicroCMS\Domain\Article;
-use MicroCMS\Domain\User;
-use MicroCMS\Form\Type\ArticleType;
-use MicroCMS\Form\Type\CommentType;
-use MicroCMS\Form\Type\UserType;
+use magasinAPI\Domain\Article;
+use magasinAPI\Domain\User;
+use magasinAPI\Form\Type\ArticleType;
+use magasinAPI\Form\Type\CommentType;
+use magasinAPI\Form\Type\UserType;
 
 class AdminController {
 
