@@ -60,5 +60,5 @@ $app->delete('/api/article/{id}', "magasinAPI\Controller\ArticleController::dele
 
 //CATEGORY
 // get all
-$app->get('/api/category', "magasinAPI\Controller\ApiController::getCategoriesAction");
+$app->get('/api/categories', "magasinAPI\Controller\ApiController::getCategoriesAction");
 

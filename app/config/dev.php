@@ -12,7 +12,7 @@ $app['db.options'] = array(
 );
 
 // enable the debug mode
-$app['debug'] = false;
+$app['debug'] = true;
 
 // define log parameters
 $app['monolog.level'] = 'INFO';

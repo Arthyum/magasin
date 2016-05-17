@@ -21,7 +21,7 @@ class ApiController {
         // Convert an array of objects ($category) into an array of associative arrays ($responseData)
         $responseData = array();
         foreach ($categories as $category) {
-            $responseData[] = $this->buildArticleArray($category);
+            $responseData[] = $this->buildCategoryArray($category);
         }
         // Create and return a JSON response
         return $app->json($responseData);
@@ -113,6 +113,14 @@ class ApiController {
             'title' => $article->getTitle(),
             'content' => $article->getContent()
             );
+        return $data;
+    }
+
+    private function buildCategoryArray(Category $category) {
+        $data  = array(
+            'id' => $category->getId(),
+            'label' => $category->getLabel()
+        );
         return $data;
     }
 }
