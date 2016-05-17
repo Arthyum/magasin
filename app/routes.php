@@ -1,5 +1,4 @@
 <?php
-
 // Home page
 $app->get('/', "magasinAPI\Controller\HomeController::indexAction");
 
@@ -8,7 +7,7 @@ $app->match('/article/{id}', "magasinAPI\Controller\HomeController::articleActio
 
 // Login form
 $app->get('/login', "magasinAPI\Controller\HomeController::loginAction")
-->bind('login');  // named route so that path('login') works in Twig templates
+    ->bind('login');  // named route so that path('login') works in Twig templates
 
 // Admin zone
 $app->get('/admin', "magasinAPI\Controller\AdminController::indexAction");
@@ -37,14 +36,29 @@ $app->match('/admin/user/{id}/edit', "magasinAPI\Controller\AdminController::edi
 // Remove a user
 $app->get('/admin/user/{id}/delete', "magasinAPI\Controller\AdminController::deleteUserAction");
 
-// API : get all articles
-$app->get('/api/articles', "magasinAPI\Controller\ApiController::getArticlesAction");
+// API
 
-// API : get an article
-$app->get('/api/article/{id}', "magasinAPI\Controller\ApiController::getArticleAction");
+//User
+// Remove a user
+$app->get('/api/user/{id}/delete', "magasinAPI\Controller\AdminController::deleteUserAction");
 
-// API : create an article
-$app->post('/api/article', "magasinAPI\Controller\ApiController::addArticleAction");
+//Articles
+// get all articles
+$app->get('/api/articles', "magasinAPI\Controller\ArticleController::getArticlesAction");
 
-// API : remove an article
-$app->delete('/api/article/{id}', "magasinAPI\Controller\ApiController::deleteArticleAction");
+// get an article
+$app->get('/api/article/{id}', "magasinAPI\Controller\ArticleController::getArticleAction");
+
+// create an article
+$app->post('/api/article', "magasinAPI\Controller\ArticleController::addArticleAction");
+
+// update an article
+$app->put('/api/article/{id}', "magasinAPI\Controller\ArticleController::editArticleAction");
+
+// remove an article
+$app->delete('/api/article/{id}', "magasinAPI\Controller\ArticleController::deleteArticleAction");
+
+//CATEGORY
+// get all
+$app->get('/api/category', "magasinAPI\Controller\ApiController::getCategoriesAction");
+

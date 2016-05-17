@@ -60,6 +60,12 @@ $app['dao.article'] = $app->share(function ($app) {
 $app['dao.user'] = $app->share(function ($app) {
     return new magasinAPI\DAO\UserDAO($app['db']);
 });
+$app['dao.category'] = $app->share(function ($app) {
+    return new magasinAPI\DAO\CategoryDAO($app['db']);
+});
+
+
+
 $app['dao.comment'] = $app->share(function ($app) {
     $commentDAO = new magasinAPI\DAO\CommentDAO($app['db']);
     $commentDAO->setArticleDAO($app['dao.article']);

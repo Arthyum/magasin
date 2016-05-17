@@ -1,32 +1,17 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: hamy-
+ * Date: 17/05/2016
+ * Time: 09:02
+ */
 namespace magasinAPI\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use magasinAPI\Domain\Article;
-use magasinAPI\Domain\Category;
 
-class ApiController {
-
-    /**
-     * API Category controller.
-     *
-     * @param Application $app Silex application
-     *
-     * @return All articles in JSON format
-     */
-    public function getCategoriesAction(Application $app) {
-        $categories = $app['dao.category']->findAll();
-        // Convert an array of objects ($category) into an array of associative arrays ($responseData)
-        $responseData = array();
-        foreach ($categories as $category) {
-            $responseData[] = $this->buildArticleArray($category);
-        }
-        // Create and return a JSON response
-        return $app->json($responseData);
-    }
-
+class ArticleController {
 
     /**
      * API articles controller.
@@ -85,7 +70,30 @@ class ApiController {
         $responseData = $this->buildArticleArray($article);
         return $app->json($responseData, 201);  // 201 = Created
     }
+    /**
+     *  API edit article controller
+     *
+     * @param id $id Article id
+     * @param Request $request Incoming request
+     * @param Application $app Silex application
+     *
+     * @return Article edited in JSON format
+     */
+    public function editArticleAction($id, Request $request, Application $app) {
+        $article = $app['dao.article']->find($id);
+        
+        $article->setTitle($request->request->get('title'));
+        $article->setContent($request->request->get('content'));
+        $app['dao.article']->save($article);
 
+        $responseData = array(
+            'id' => $article->getId(),
+            'title' => $article->getTitle(),
+            'content' => $article->getContent()
+	    );
+
+	    return $app->json($responseData, 202);
+    }
     /**
      * API delete article controller.
      *
@@ -112,7 +120,7 @@ class ApiController {
             'id' => $article->getId(),
             'title' => $article->getTitle(),
             'content' => $article->getContent()
-            );
+        );
         return $data;
     }
 }
